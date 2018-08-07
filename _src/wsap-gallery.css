@@ -1,0 +1,283 @@
+/* Generic reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* Nothing to do with demo */
+.heading {
+    padding: 20px 0;
+    background-color: rgb(40,40,40);
+    color: rgb(230,230,230);
+    text-align: center;
+}
+
+
+/** Reset elements **/
+.ezee-slideshow,
+.wsap-gallery,
+.gallery-img,
+.slideshow-wrapper,
+.slides-container,
+.slideshow-slide,
+.prev-slide-btn, .next-slide-btn,
+.dot-nav,
+.slideshow-dot,
+.slideshow-dot img{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================
+    Slideshow(both in place lightbox)
+========================================== */
+/* Lightbox background */
+#ezee-overlay{
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.91);
+}
+/* Lightbox slideshow */
+.ezee-lightbox-slideshow{
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    z-index: 50;
+}
+.ezee-lightbox-slideshow .slideshow-slide img{
+    /*Centers image if too small for screen*/
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 98%;
+    max-width: 98%;
+}
+/* In place slideshow  */
+.ezee-slideshow {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+/*Allows max-width on image to have an effect*/
+.slideshow-img-block{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ======================
+    Slideshow close btn
+====================== */
+.close-lightbox-btn{
+    z-index: 100;
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    padding: 10px 10px;
+    cursor: pointer;
+    height: 49px;
+    width: 50px;
+    font-size: 35px;
+    color: rgb(220, 220, 220);
+    border-radius: 0 0 0 10px;
+}
+.wsap-btn-bar {
+    width: 26px;
+    height: 2px;
+    display: block;
+    background: rgb(239, 239, 239);
+    z-index: 100;
+    transform-origin: center;
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50% ) rotate(45deg);
+    border-radius: 10px;
+}
+.wsap-btn-bar:last-child {
+    transform: translate(-50% ) rotate(-45deg);
+}
+
+
+/* ===========================
+    Slide container and slides
+============================ */
+.slideshow-img-block{
+    width: 100%;
+}
+.slideshow-slide{
+    height: 100%;
+    display: none;
+    align-items: center;
+}
+.slideshow-slide img {
+    max-width: 100%;
+    display: block;
+}
+/* Forces images to be full width of slideshow */
+.full-width .slideshow-slide,
+.full-width .slideshow-slide img{
+    width: 100%;
+}
+
+
+/* ===========================
+    Slideshow nav arrows
+============================ */
+.prev-slide-btn, 
+.next-slide-btn{
+    /*z-index keeps arrows above fade effect*/
+    z-index: 100;
+    cursor: pointer;
+    position: absolute;
+    width: 30%;
+    top: 50%;
+    padding: 20% 30px;
+    color: rgba(255,255,255,.5);
+    font-size: 30px;
+    transform: translateY(-50%);
+    transition: color .2s ease 0s;
+}
+.next-slide-btn{
+    text-align: right;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev-slide-btn:hover, 
+.next-slide-btn:hover{
+    color: rgba(255,255,255,.8);
+}
+
+
+/* ===========================
+    Slideshow nav Dots
+============================ */
+.dot-nav{
+    position: absolute;
+    z-index: 100;
+    bottom:15px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+}
+.slideshow-dot{
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    margin: 0 5px;
+    background-color: rgba(100,100,100,.6);
+    border-radius: 50%;
+    border: 2px solid rgba(240,240,240,.7);
+    display: inline-block;
+    transition: background-color 300ms ease 0s;
+}
+.active-dot, .slideshow-dot:hover{
+    background-color: #353535;
+}
+/*Keeps dots from crowding images on a small screen*/
+.dot-nav {
+    display: none;
+}
+/* Breakpoint for minimum size to show dots */
+@media screen and (min-width: 750px){
+    .dot-nav{
+        display: block;
+    }
+}
+
+
+/* =========================================
+    Slideshow animation
+========================================== */
+
+/* **** Animation for slide change */
+.slide-effect-fade{
+    animation-name: slideshow-fade;
+    animation-duration: .5s; 
+}
+@keyframes slideshow-fade{
+    from {opacity: .7 }
+    to { opacity: 1 }
+}
+
+
+/* =========================================
+    Gallery
+========================================== */
+.wsap-gallery{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+}
+/* These four lines are incredibly useful for flexbox, by the way.
+ Kudos to https://stackoverflow.com/a/34816625*/
+.wsap-gallery:after {
+    content: "";
+    flex: auto;
+}
+.gallery-img{
+    display: block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* =========================================
+    Gallery image sizes
+========================================== */
+/* TODO make consistent ratio */
+
+/* 2 columns */
+.gallery-img {
+    width: 49.57%;
+    padding-top: 35%;
+    margin: .2%;
+}
+
+/* 3 columns */
+@media screen and (min-width: 600px){
+    /*Setting height by padding-top maintains aspect ratio when window is resized*/
+    .gallery-img{
+        width: 33.1%;
+        padding-top: 23.3709%;
+        margin: .1%;
+    }
+}
+/* 4 columns */
+@media screen and (min-width: 1200px){
+    /*Setting height by padding-top maintains aspect ratio when window is resized*/
+    .gallery-img{
+        width: 24.8%;
+        padding-top: 17.5105%;
+        margin: .1%;
+    }
+}
+/* 5 columns */
+@media screen and (min-width: 12000px){
+    /*Setting height by padding-top maintains aspect ratio when window is resized*/
+    .gallery-img{
+        width: 19.8%;
+        padding-top: 13.9802%;
+        margin: .1%;
+    }
+}
+/* 6 columns */
+@media screen and (min-width: 12000px){
+    /*Setting height by padding-top maintains aspect ratio when window is resized*/
+    .gallery-img{
+        width: 16.5%;
+        padding-top: 11.6501%;
+        margin: .082%;
+    }
+}
