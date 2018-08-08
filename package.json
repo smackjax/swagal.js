@@ -1,5 +1,5 @@
 {
-  "name": "wsap",
+  "name": "swagal.js",
   "version": "1.0.0",
   "description": "",
   "main": "./_src/index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smackjax/wsap.git"
+    "url": "git+https://github.com/smackjax/swagal.js.git"
   },
   "keywords": [
     "gallery",
@@ -22,9 +22,9 @@
   "author": "smackjax",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/smackjax/wsap/issues"
+    "url": "https://github.com/smackjax/swagal.js/issues"
   },
-  "homepage": "https://github.com/smackjax/wsap#readme",
+  "homepage": "https://github.com/smackjax/swagal.js#readme",
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
