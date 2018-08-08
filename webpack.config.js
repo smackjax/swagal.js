@@ -10,7 +10,7 @@ module.exports = {
     entry: './_src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: 'swagal.js'
     },
  
     module: {
@@ -41,8 +41,7 @@ module.exports = {
 
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'css/[name].css',
-            chunkFilename: 'css/[name].css',
+            filename: 'swagal.css'
         }),
 
         // ======= HTML pages ===========
