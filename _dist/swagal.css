@@ -13,6 +13,8 @@
 }
 
 
+
+
 /** Reset elements **/
 .ezee-slideshow,
 .wsap-gallery,
@@ -35,7 +37,7 @@
     Slideshow(both in place lightbox)
 ========================================== */
 /* Lightbox background */
-#ezee-overlay{
+#wsap-overlay{
     z-index: 1000;
     position: fixed;
     top: 0;
@@ -44,37 +46,54 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.91);
 }
-/* Lightbox slideshow */
-.ezee-lightbox-slideshow{
+/* Inline slideshow  */
+.wsap-gallery {
     position: relative;
     display: block;
     width: 100%;
     overflow: hidden;
-    height: 100%;
+}
+
+/* Lightbox slideshow(for gallery) */
+.wsap-slideshow{
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    
     z-index: 50;
 }
-.ezee-lightbox-slideshow .slideshow-slide img{
+.wsap-slideshow .slideshow-slide img{
     /*Centers image if too small for screen*/
     margin-left: auto;
     margin-right: auto;
     max-height: 98%;
     max-width: 98%;
 }
-/* In place slideshow  */
-.ezee-slideshow {
-    position: relative;
-    display: block;
-    width: 100%;
-    overflow: hidden;
-}
-/*Allows max-width on image to have an effect*/
+
+/* ===========================
+    Slide container and slides
+============================ */
 .slideshow-img-block{
-    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.slideshow-slide{
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.slideshow-slide img {
+    max-width: 100%;
+    display: block;
+}
 
+.ezee-lightbox-slideshow .slideshow-img-block, 
+.ezee-lightbox-slideshow .slideshow-slide{
+    height: 100%;
+}
 
 /* ======================
     Slideshow close btn
@@ -87,17 +106,15 @@
     right: 0;
     padding: 10px 10px;
     cursor: pointer;
-    height: 49px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     font-size: 35px;
-    color: rgb(220, 220, 220);
-    border-radius: 0 0 0 10px;
 }
 .wsap-btn-bar {
     width: 26px;
-    height: 2px;
+    height: 3px;
     display: block;
-    background: rgb(239, 239, 239);
+    background: rgb(215,215,215);
     z-index: 100;
     transform-origin: center;
     top: 50%;
@@ -105,31 +122,10 @@
     left: 50%;
     transform: translate(-50% ) rotate(45deg);
     border-radius: 10px;
+    overflow: hidden;
 }
 .wsap-btn-bar:last-child {
     transform: translate(-50% ) rotate(-45deg);
-}
-
-
-/* ===========================
-    Slide container and slides
-============================ */
-.slideshow-img-block{
-    width: 100%;
-}
-.slideshow-slide{
-    height: 100%;
-    display: none;
-    align-items: center;
-}
-.slideshow-slide img {
-    max-width: 100%;
-    display: block;
-}
-/* Forces images to be full width of slideshow */
-.full-width .slideshow-slide,
-.full-width .slideshow-slide img{
-    width: 100%;
 }
 
 
@@ -145,7 +141,7 @@
     width: 30%;
     top: 50%;
     padding: 20% 30px;
-    color: rgba(255,255,255,.5);
+    color: rgba(10,10,10,.6);
     font-size: 30px;
     transform: translateY(-50%);
     transition: color .2s ease 0s;
@@ -157,9 +153,24 @@
     right: 0;
     border-radius: 3px 0 0 3px;
 }
+
 .prev-slide-btn:hover, 
 .next-slide-btn:hover{
-    color: rgba(255,255,255,.8);
+    color: rgba(0,0,0,.9);
+}
+
+
+
+.ezee-lightbox-slideshow .prev-slide-btn, 
+.ezee-lightbox-slideshow .next-slide-btn {
+    color: rgba(255,255,255,.5);
+    
+}
+
+.ezee-lightbox-slideshow .prev-slide-btn:hover, 
+.ezee-lightbox-slideshow .next-slide-btn:hover {
+    color: rgba(255,255,255,.9);
+    
 }
 
 
@@ -170,10 +181,10 @@
     position: absolute;
     z-index: 100;
     bottom:15px;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
+    width: 100%;
     text-align: center;
+    /*Keeps dots from crowding images on a small screen*/
+    display: none;
 }
 .slideshow-dot{
     cursor: pointer;
@@ -189,10 +200,7 @@
 .active-dot, .slideshow-dot:hover{
     background-color: #353535;
 }
-/*Keeps dots from crowding images on a small screen*/
-.dot-nav {
-    display: none;
-}
+
 /* Breakpoint for minimum size to show dots */
 @media screen and (min-width: 750px){
     .dot-nav{
@@ -228,6 +236,7 @@
  Kudos to https://stackoverflow.com/a/34816625*/
 .wsap-gallery:after {
     content: "";
+    display: inline-block;
     flex: auto;
 }
 .gallery-img{

@@ -9,7 +9,7 @@ const path = require('path');
 module.exports = {
     entry: './_src/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '_dist'),
         filename: 'swagal.js'
     },
  
