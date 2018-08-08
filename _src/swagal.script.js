@@ -2,10 +2,10 @@ const swgl = {
 
     // General options
     options: {
-        // Nav dots in lightbox
+        /* Build nav dots in lightbox */
         'navDots' : true,
 
-        // Options to load thumbnails for gallery(none are required, can be overwritten)
+        /* Options to load thumbnails for gallery(none are required, can be overwritten) */
         // thumbs: {
         //     prefix: 't-',
         //     suffix: '',
@@ -14,26 +14,25 @@ const swgl = {
     
     }, // End options
 
-    // Class reference
-    // NOTE: This is passed in className, so multiple classes can be written with spaces between
+    /* Class reference 
+    Can be updated selectively with individual initialization
+    NOTE: These are applied with className, so multiple classes can be written with spaces between */
     classes: {
-        slideshowWrapper: 'swgl-slideshow',
         galleryWrapper: 'swgl-gallery',
-
-        lightboxOverlay: "swgl-overlay",
-        closeLighboxBtn: 'swgl-x-btn',
-        xBtnBar: 'swgl-btn-bar',
-        navArrow: 'swgl-nav-arrow',
-
-        lightboxSlideshow: 'swgl-lightbox-slideshow',
         landscapeImg: 'landscape-img',
         portraitImg: 'portrait-img',
         slideshowImgBlock: 'swgl-imgs-wrap',
         slideshowSlide: 'swgl-slide',
         slideshowEffect: 'swgl-fade',
-        slideshowDot: 'swgl-dot',
+
+        slideshowWrapper: 'swgl-slideshow',
+        lightboxOverlay: "swgl-overlay",
+        lightboxSlideshow: 'swgl-lightbox-slideshow',
+        closeLighboxBtn: 'swgl-x-btn',
+        xBtnBar: 'swgl-btn-bar',
         nextArrow: 'swgl-next',
-        prevArrow: 'swgl-prev'
+        prevArrow: 'swgl-prev',
+        slideshowDot: 'swgl-dot',
     },
 
     /* =================
