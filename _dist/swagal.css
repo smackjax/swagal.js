@@ -1,3 +1,20 @@
+/* Generic reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* Nothing to do with demo */
+.heading {
+    padding: 20px 0;
+    background-color: rgb(40,40,40);
+    color: rgb(230,230,230);
+    text-align: center;
+}
+
+
+
+
 /** Reset elements **/
 .swgl-slideshow,
 .swgl-gallery,
@@ -36,8 +53,9 @@
     width: 100%;
     overflow: hidden;
 }
-
-/* Lightbox slideshow(for gallery) */
+.swgl-lightbox-slideshow {
+    height: 100%;
+}
 .swgl-slideshow{
     position: relative;
     display: block;
@@ -47,9 +65,6 @@
     z-index: 50;
 }
 .swgl-slideshow .swgl-slide img{
-    /*Centers image if too small for screen*/
-    margin-left: auto;
-    margin-right: auto;
     max-height: 98%;
     max-width: 98%;
 }
@@ -71,6 +86,8 @@
 .swgl-slide img {
     max-width: 100%;
     display: block;
+    min-width: 1px;
+    min-height: 1px;
 }
 
 .swgl-lightbox-slideshow .swgl-imgs-wrap, 
@@ -82,7 +99,7 @@
     Slideshow close btn
 ====================== */
 .swgl-x-btn{
-    z-index: 100;
+    z-index: 1000;
     position: absolute;
     display: block;
     top: 0;
